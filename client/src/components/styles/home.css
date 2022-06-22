@@ -1,0 +1,65 @@
+main.home {
+	background-image: url('https://www.geekmi.news/__export/1632757647088/sites/debate/img/2021/09/27/rick_happy.jpg_1840851202.jpg');
+	min-width: 100%;
+	min-height: 100vh;
+	background-size: cover;
+	background-position: center center;
+	/* --------------------------------- */
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+}
+.Tarjetas {
+	display: grid;
+	grid-template-rows: 540px 540px;
+	grid-template-columns: 540px 540px;
+	width: 70%;
+	margin: auto;
+}
+
+li.paginado {
+	display: inline;
+	padding: 8px;
+	background-color: rgba(0, 0, 0, 0.3);
+	width: 70%;
+	margin: auto;
+}
+.loading {
+	background-image: none;
+	color: white;
+	width: max-content;
+	margin: auto;
+}
+h3.loading {
+	background-color: rgba(0, 0, 0, 0.3);
+	width: fit-content;
+}
+img.loading {
+	min-width: 100px;
+	min-height: 100px;
+}
+
+h1.home {
+	background-color: rgba(255, 255, 255, 0.5);
+	width: 20%;
+	display: flex;
+	justify-content: center;
+}
+h1 {
+	background-color: rgba(255, 255, 255, 0.5);
+	width: 20%;
+	display: flex;
+	justify-content: center;
+}
+
+a.crear {
+	color: rgb(255, 251, 0);
+}
+
+h2.loading {
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+}

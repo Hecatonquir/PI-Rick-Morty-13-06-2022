@@ -1,0 +1,74 @@
+main.mainCrear {
+	background-image: url('https://i.pinimg.com/originals/e2/d4/86/e2d48646d01bc5f696457b4be179e599.jpg');
+	min-width: 100%;
+	min-height: 100vh;
+	background-size: cover;
+	background-position: center center;
+	/* ----- */
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+}
+div.Crear {
+	background-color: rgba(200, 229, 255, 0.3);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+}
+h1.Crear {
+	text-align: center;
+	width: fit-content;
+}
+
+form.Crear {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: stretch;
+}
+
+div.labels {
+	background-color: rgba(255, 255, 255, 0.6);
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	margin: 0.5%;
+	border: 1px solid #000000;
+	border-radius: 5px;
+	width: max-content;
+}
+
+ul.checkbox {
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: stretch;
+	margin: 0px;
+	padding: 0%;
+}
+li.checkbox {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	padding: 0.5rem;
+}
+
+/* p.verif {
+	display: inline;
+	padding-left: 2%;
+	background-color: #00000096;
+	color: red;
+	font-weight: bolder;
+} */
+label {
+	font-weight: bolder;
+	font-size: 25px;
+} /*
+div {
+	position: static;
+} */

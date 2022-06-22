@@ -1,0 +1,25 @@
+.landing1 {
+	background-image: url('https://wallpaperaccess.com/full/6798923.jpg');
+	min-width: 100%;
+	min-height: 100vh;
+	background-size: cover;
+	background-position: 50% 65%;
+	background-attachment: fixed;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	border-radius: 20%;
+}
+.landing2 {
+	background-color: rgba(240, 248, 255, 0.7);
+	padding: 1%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+h1.titulo {
+	background-color: transparent;
+	width: fit-content;
+}
