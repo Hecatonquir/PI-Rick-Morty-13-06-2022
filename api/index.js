@@ -7,8 +7,8 @@ const { getEpisodes } = require('./src/functions.js');
 // Para la precarga cuando se levanta el server, ejecutar la funcion getEpisodes(). Al ser una peticion vamos a usar async await.
 
 conn.sync({ force: false }).then(async () => {
-	await getEpisodes();
 	server.listen(process.env.PORT, () => {
 		console.log(`%s listening at ${process.env.PORT}`); // eslint-disable-line no-console
 	});
+	await getEpisodes();
 });
