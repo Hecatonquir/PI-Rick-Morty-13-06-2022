@@ -3,7 +3,7 @@ import axios from 'axios';
 export function getCharacters() {
 	return async (dispatch) => {
 		return await axios
-			.get('http://localhost:3001/characters')
+			.get('/characters')
 			.then((res) => dispatch({ type: 'GET_CHARACTERS', payload: res.data }))
 			.catch('Hubo un ERROR en action getCharacters');
 	};
@@ -12,7 +12,7 @@ export function getCharacters() {
 export function getEpisodes() {
 	return async (dispatch) => {
 		return await axios
-			.get('http://localhost:3001/episodes')
+			.get('/episodes')
 			.then((res) => dispatch({ type: 'GET_EPISODES', payload: res.data }))
 			.catch('Hubo un ERROR en action getEpisodes');
 	};
@@ -22,7 +22,7 @@ export function createNewCharacter(info) {
 	return async () => {
 		return await axios({
 			method: 'post',
-			url: 'http://localhost:3001/newcharacter',
+			url: '/newcharacter',
 			data: info,
 		});
 	};
@@ -31,7 +31,7 @@ export function createNewCharacter(info) {
 export function getCharactersByName(name) {
 	return async (dispatch) => {
 		return await axios
-			.get(`http://localhost:3001/characters?name=${name}`)
+			.get(`/characters?name=${name}`)
 			.then((res) => dispatch({ type: 'GET_CHARACTERS_BY_NAME', payload: res.data }))
 			.catch('Hubo un ERROR en action getCharactersByName');
 	};
@@ -40,7 +40,7 @@ export function getCharactersByName(name) {
 export function getOrigins() {
 	return async (dispatch) => {
 		return await axios
-			.get(`http://localhost:3001/origin`)
+			.get(`/origin`)
 			.then((res) => dispatch({ type: 'GET_CHARACTERS_BY_ORIGIN', payload: res.data }))
 			.catch('Hubo un ERROR en action getCharactersByName');
 	};
@@ -53,6 +53,7 @@ export function filterCreatedCharacters(payload) {
 }
 export function filteredAlphabetycally(payload) {
 	return { type: 'FILTER_ALPHABETICALLY', payload };
-}export function filteredBySpecie(payload) {
+}
+export function filteredBySpecie(payload) {
 	return { type: 'FILTER_BY_SPECIE', payload };
 }
