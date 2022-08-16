@@ -1,5 +1,5 @@
-const axios = require('axios');
-const { Character, Episode } = require('./db.js');
+const axios = require("axios");
+const { Character, Episode } = require("./db.js");
 
 const apiCharacters = async function (req, res) {
 	try {
@@ -23,16 +23,19 @@ const apiCharacters = async function (req, res) {
 			};
 			const nombreDeEpisodios = await promesa();
 			return {
-				id: char.id,
+				apiId: char.id,
 				name: char.name.toLowerCase(),
 				species: char.species,
 				origin: char.origin.name,
 				image: char.image,
 				episode: nombreDeEpisodios,
+				createdInDb: false,
 			};
 		});
 		const resolved2 = await Promise.all(apiCharacter);
-		return await resolved2;
+		//console.log("🐲🐲🐲 / file: functions.js / line 35 / resolved2", resolved2);
+
+		return resolved2;
 	} catch (error) {
 		return error;
 	}
@@ -41,12 +44,12 @@ const dbCharacters = async function (req, res) {
 	const created_Characters = await Character.findAll({
 		include: {
 			model: Episode,
-			attributes: ['name'],
+			attributes: ["name"],
 		},
 	});
 	created_Characters.map((e) => {
-		e.dataValues['episode'] = e.dataValues['episodes'].map((e) => e.dataValues.name);
-		delete e.dataValues['episodes'];
+		e.dataValues["episode"] = e.dataValues["episodes"].map((e) => e.dataValues.name);
+		delete e.dataValues["episodes"];
 	});
 
 	return created_Characters.map((e) => e.dataValues);
@@ -54,17 +57,31 @@ const dbCharacters = async function (req, res) {
 const ALLCharacters = async function (req, res) {
 	try {
 		const api_Characters = await apiCharacters();
-		const db_Characters = await dbCharacters();
-		let AllCharacters = api_Characters.concat(db_Characters);
-		return AllCharacters;
+		api_Characters.map((e) => {
+			Character.findOrCreate({ where: e });
+		});
+		const api_Characters2 = await Character.findAll();
+		return api_Characters2;
 	} catch (error) {
 		return error;
 	}
 };
+
+const getCharacters2 = async (req, res) => {
+	try {
+		var allCharacters = await ALLCharacters();
+		allCharacters = allCharacters?.map((char) => char.dataValues);
+		//console.log("🐲🐲🐲 / file: functions.js / line 77 / allCharacters", allCharacters);
+		return allCharacters ? allCharacters : "se rompiotodo";
+	} catch (error) {
+		console.log("🐲🐲🐲 / file: functions.js / line 79 / error:\n", error.message);
+	}
+};
+
 const ALLCharacters2 = async function (req, res) {
 	const { name } = req.query;
 	try {
-		let allchar = await ALLCharacters();
+		let allchar = await await Character.findAll();
 		if (name) allchar = allchar.filter((e) => e.name.includes(name.toLowerCase()));
 		res.send(allchar);
 	} catch (error) {
@@ -74,7 +91,7 @@ const ALLCharacters2 = async function (req, res) {
 
 const getEpisodes = async (rqe, res) => {
 	try {
-		const episodes = await axios.get('https://rickandmortyapi.com/api/episode');
+		const episodes = await axios.get("https://rickandmortyapi.com/api/episode");
 		const episodes2 = episodes.data.results.map((e) => e.name);
 		episodes2.map((e) => {
 			Episode.findOrCreate({ where: { name: e.toLowerCase() } });
@@ -97,11 +114,11 @@ const newCharacter = async (req, res) => {
 		let checkEpisode = await Episode.findAll({
 			where: { name: episode.map((e) => e.toLowerCase()) },
 		});
-		aventura.addPais(paises)
+		aventura.addPais(paises);
 		createCharacter.addEpisode(checkEpisode);
-		res.send('Character creado correctamente');
+		res.send("Character creado correctamente");
 	} catch (error) {
-		res.send('No se pudo crear el personaje ');
+		res.send("No se pudo crear el personaje ");
 	}
 };
 const AllOrigins = async (req, res) => {
@@ -114,4 +131,4 @@ const AllOrigins = async (req, res) => {
 	}
 };
 
-module.exports = { ALLCharacters2, getEpisodes, getEpisodes2, newCharacter, AllOrigins };
+module.exports = { ALLCharacters2, getEpisodes, getEpisodes2, newCharacter, AllOrigins, getCharacters2 };
