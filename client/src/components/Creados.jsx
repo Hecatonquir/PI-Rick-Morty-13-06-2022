@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import * as A from "../redux/actions";
 import Tarjeta from "./Tarjeta";
 import "./styles/creados.css";
+import Navbar from "./02-Navbar";
 export default function Creados() {
 	const dispatch = useDispatch();
 	const AllCharacters = useSelector((state) => state.characters);
@@ -15,7 +16,7 @@ export default function Creados() {
 	return (
 		<main className="creados">
 			<br />
-			<h1> ESTAS EN Personajes Creados </h1>
+			<Navbar />			
 			{AllCharacters.length ? (
 				<section className="Tarjetas">
 					{AllCharacters.map((e) => {

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 /* import { useHistory } from 'react-router-dom'; */
 import { useDispatch, useSelector } from 'react-redux';
 import { createNewCharacter, getEpisodes } from '../redux/actions';
+import Navbar from './02-Navbar';
 import control from './09-control.jsx';
 import './styles/04-Create.css';
 
@@ -82,6 +83,7 @@ export default function NewRecipe() {
 
 	return (
 		<main className='mainCrear'>
+			<Navbar />
 			<div className='Crear'>
 				<br />
 				<h1 className='Crear'> ¡Crea tu propio Personaje! </h1>

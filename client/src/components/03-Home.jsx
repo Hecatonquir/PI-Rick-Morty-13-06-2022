@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Navbar from "./02-Navbar.jsx";
 
 import "./styles/home.css";
 
@@ -48,8 +49,9 @@ export default function Home() {
 	return (
 		<main className="home">
 			<br />
+
 			<br />
-			<h1> ESTAS EN HOME </h1>
+			<Navbar />
 			<button onClick={(e) => handleRefresh(e)}> Recargar la página </button>
 			{currentCharacters.length > 1 ? <SearchBar /> : ""}
 			<div>
