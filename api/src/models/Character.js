@@ -28,7 +28,7 @@ module.exports = (sequelize) => {
 				type: DataTypes.STRING,
 			},
 			image: {
-				type: DataTypes.STRING,
+				type: DataTypes.TEXT,
 			},
 			episode: {
 				type: DataTypes.ARRAY(DataTypes.STRING),
