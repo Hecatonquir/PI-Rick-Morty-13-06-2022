@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles/landingPage.css';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function LandingPage() {
 	return (
@@ -8,11 +10,9 @@ export default function LandingPage() {
 			<br />
 			<section className='landing2'>
 				<h1 className='titulo'> Bienvenido a mi Api de Rick & Morty! </h1>
-				<button className='boton'>
-					<Link className='linke' to={'/home'}>
-						<h2 className=''>Ingresar</h2>
-					</Link>
-				</button>
+				<Button variant='outline-dark' size='lg' href='/home'>
+					Ingresar
+				</Button>
 			</section>
 		</main>
 	);

@@ -27,7 +27,7 @@ let sequelize =
 				},
 				ssl: true,
 		  })
-		: new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
+		: new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/RickAndMorty`, {
 				logging: false,
 				native: false,
 		  });
@@ -47,10 +47,7 @@ fs.readdirSync(path.join(__dirname, '/models'))
 modelDefiners.forEach((model) => model(sequelize));
 // Capitalizamos los nombres de los modelos ie: product => Product
 let entries = Object.entries(sequelize.models);
-let capsEntries = entries.map((entry) => [
-	entry[0][0].toUpperCase() + entry[0].slice(1),
-	entry[1],
-]);
+let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
@@ -58,8 +55,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 const { Character, Episode } = sequelize.models;
 
 // Aca vendrian las relaciones
-Character.belongsToMany(Episode, { through: 'CharacterxEpisode', timestamps: false });
-Episode.belongsToMany(Character, { through: 'CharacterxEpisode', timestamps: false });
+Character.belongsToMany(Episode, { through: 'Character_Episode', timestamps: false });
+Episode.belongsToMany(Character, { through: 'Character_Episode', timestamps: false });
 
 module.exports = {
 	...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

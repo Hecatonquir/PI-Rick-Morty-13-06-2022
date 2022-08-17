@@ -60,6 +60,12 @@ a.crear {
 }
 
 h2.loading {
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.8);
 	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40%;
+	height: 3rem;
+	border-radius: 5px;
 }
