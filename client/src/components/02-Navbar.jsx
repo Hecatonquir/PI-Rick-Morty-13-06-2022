@@ -1,15 +1,13 @@
 import React from 'react';
 import './styles/Navbar.css';
-import Button from 'react-bootstrap/Button';
+//import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function NavbarBootstrap() {
 	return (
-		<Navbar bg='light' expand='lg'>
+		<Navbar bg='light' expand='lg' fixed='top'>
 			<Container fluid>
 				<Navbar.Brand href='/'>Rick & Morty!</Navbar.Brand>
 				<Navbar.Toggle aria-controls='navbarScroll' />
@@ -24,17 +22,3 @@ export default function NavbarBootstrap() {
 		</Navbar>
 	);
 }
-
-/* 	<nav>
-			<ul className='navBar'>
-				<li key='1'>
-					<NavLink to='/home'> Home </NavLink>
-				</li>
-				<li key='2'>
-					<NavLink to='/create'> Crear Personaje </NavLink>
-				</li>
-				<li key='3'>
-					<NavLink to='/creados'> Personajes Creados </NavLink>
-				</li>
-			</ul>
-		</nav> */

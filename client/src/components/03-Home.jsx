@@ -25,7 +25,7 @@ export default function Home() {
 	//_________________________________ Paginado ________________________________________
 	const [currentPage, setCurrentPage] = useState(1);
 	// eslint-disable-next-line no-unused-vars
-	const [charactersPerPage, setCharactersPerPage] = useState(2);
+	const [charactersPerPage, setCharactersPerPage] = useState(9);
 	// eslint-disable-next-line no-unused-vars
 	const [orden, setOrden] = useState('');
 	const indexOfLastCharacter = currentPage * charactersPerPage;
