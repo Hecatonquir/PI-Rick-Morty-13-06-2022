@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 export default function NavbarBootstrap() {
 	return (
-		<Navbar bg='light' expand='lg' fixed='top'>
+		<Navbar expand='lg' fixed='top' bg='dark' variant='dark'>
 			<Container fluid>
 				<Navbar.Brand href='/'>Rick & Morty!</Navbar.Brand>
 				<Navbar.Toggle aria-controls='navbarScroll' />

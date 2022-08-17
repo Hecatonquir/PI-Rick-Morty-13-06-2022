@@ -19,18 +19,10 @@ export default function SearchBar() {
 
 	return (
 		<>
-			<br />
-			<input
-				type='text'
-				onChange={(e) => handleChange(e)}
-				placeholder='Buscar Personaje...'
-				value={searchInput}
-			/>
-			<br />
+			<input type='text' onChange={(e) => handleChange(e)} placeholder='Buscar Personaje...' value={searchInput} />
 			<button type='submit' onClick={(e) => handleSearch(e)}>
 				Buscar
 			</button>
-			<br />
 		</>
 	);
 }

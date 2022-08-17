@@ -48,7 +48,10 @@ async function getApiCharacters() {
 
 		console.log('Characters uploaded to Db');
 	} catch (error) {
-		console.log('💥💥💥 / file: Character.js / line 51 / getApiCharacters / error.message ->', error.message);
+		console.log(
+			'💥💥💥 / file: Character.js / line 51 / getApiCharacters / error.message ->',
+			error.message
+		);
 	}
 }
 
@@ -57,7 +60,7 @@ async function getDbCharacters(req, res) {
 		let dbCharacters = await Character.findAll({
 			include: {
 				model: Episode,
-				attributes: ['name'],
+				attributes: ['name', 'id'],
 				through: {
 					attributes: [],
 				},
