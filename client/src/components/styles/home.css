@@ -78,3 +78,11 @@ div.filtros {
 	background-color: rgb(0, 0, 0, 0.5);
 	border-radius: 5px;
 }
+
+.active > .page-link,
+.page-link.active {
+	z-index: 3;
+	color: var(--bs-pagination-active-color);
+	background-color: grey !important;
+	border-color: var(--bs-pagination-active-border-color);
+}

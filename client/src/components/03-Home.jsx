@@ -56,7 +56,7 @@ export default function Home() {
 	return (
 		<div>
 			<header>{<NavbarBootstrap />}</header>
-			<main className='home my-5'>
+			<main className='home mt-5'>
 				<Container className='text-center mt-3 py-2 filtros'>
 					<Row className='my-2'>
 						<Col>{<SearchBar />}</Col>
@@ -78,6 +78,7 @@ export default function Home() {
 						charactersPerPage={charactersPerPage}
 						Characters={Characters.length}
 						paginado={paginado}
+						currentPage={currentPage}
 					/>
 				</Container>
 
@@ -128,6 +129,7 @@ export default function Home() {
 						charactersPerPage={charactersPerPage}
 						Characters={Characters.length}
 						paginado={paginado}
+						currentPage={currentPage}
 					/>
 				</Container>
 			</main>
