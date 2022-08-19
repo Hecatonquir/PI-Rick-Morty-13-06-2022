@@ -9,15 +9,16 @@
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-	border-radius: 20%;
 }
-.landing2 {
+section.landing2 {
 	background-color: rgba(240, 248, 255, 0.7);
 	padding: 1%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	border-radius: 20px;
+	margin-top: 2rem;
 }
 h1.titulo {
 	background-color: transparent;

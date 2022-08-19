@@ -28,15 +28,6 @@ export function createNewCharacter(info) {
 	};
 }
 
-export function getCharactersByName(name) {
-	return async (dispatch) => {
-		return await axios
-			.get(`/characters?name=${name}`)
-			.then((res) => dispatch({ type: 'GET_CHARACTERS_BY_NAME', payload: res.data }))
-			.catch('Hubo un ERROR en action getCharactersByName');
-	};
-}
-
 export function getOrigins() {
 	return async (dispatch) => {
 		return await axios
@@ -44,6 +35,10 @@ export function getOrigins() {
 			.then((res) => dispatch({ type: 'GET_CHARACTERS_BY_ORIGIN', payload: res.data }))
 			.catch('Hubo un ERROR en action getCharactersByName');
 	};
+}
+
+export function getCharactersByName(name) {
+	return { type: 'GET_CHARACTERS_BY_NAME', payload: name };
 }
 export function filterByOrigin(payload) {
 	return { type: 'FILTER_BY_ORIGIN', payload };

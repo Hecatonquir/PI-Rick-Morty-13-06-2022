@@ -6,6 +6,7 @@ const { getDbEpisodes } = require('./Functions/Episodes');
 server.use(express.json());
 
 server.get('/characters', getDbCharacters);
+
 server.get('/episodes', getDbEpisodes);
 server.post('/newcharacter', newCharacter);
 server.get('/origin', AllOrigins);

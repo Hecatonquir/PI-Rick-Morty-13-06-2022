@@ -19,9 +19,12 @@ export default function rootReducer(state = initialState, action) {
 				episodes: action.payload,
 			};
 		case 'GET_CHARACTERS_BY_NAME':
+			let searchedChar = state.allCharacters.filter((char) =>
+				char.name.toLowerCase().includes(action.payload.toLowerCase())
+			);
 			return {
 				...state,
-				characters: action.payload,
+				characters: searchedChar.length ? searchedChar : 'No Coincidences Found',
 			};
 		case 'GET_CHARACTERS_BY_ORIGIN':
 			return {
@@ -45,8 +48,8 @@ export default function rootReducer(state = initialState, action) {
 				action.payload === 'All'
 					? allCharacters2
 					: action.payload === 'original'
-					? allCharacters2.filter((e) => typeof e.id === 'number')
-					: allCharacters2.filter((e) => typeof e.id !== 'number');
+					? allCharacters2.filter((e) => typeof e.id !== 'number')
+					: allCharacters2.filter((e) => typeof e.id === 'number');
 			return {
 				...state,
 				characters: statusFiltered2,
@@ -67,9 +70,7 @@ export default function rootReducer(state = initialState, action) {
 		case 'FILTER_BY_SPECIE':
 			const Characters4 = state.characters;
 			const statusFiltered4 =
-				action.payload === 'All'
-					? Characters4
-					: Characters4.filter((e) => e.species === action.payload);
+				action.payload === 'All' ? Characters4 : Characters4.filter((e) => e.species === action.payload);
 			return {
 				...state,
 				characters: statusFiltered4,

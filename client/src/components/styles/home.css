@@ -23,7 +23,7 @@ main.home {
 li.paginado {
 	display: inline;
 	padding: 8px;
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.5);
 	width: 70%;
 	margin: auto;
 }
@@ -34,12 +34,16 @@ li.paginado {
 	margin: auto;
 }
 h3.loading {
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.5);
 	width: fit-content;
 }
-img.loading {
-	min-width: 100px;
-	min-height: 100px;
+img.Loading-img {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 30rem;
+	height: 30rem;
+	border-radius: 20px;
 }
 
 h1.home {
@@ -60,12 +64,17 @@ a.crear {
 }
 
 h2.loading {
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgba(0, 0, 0, 0.5);
 	color: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 40%;
 	height: 3rem;
+	border-radius: 5px;
+}
+
+div.filtros {
+	background-color: rgb(0, 0, 0, 0.5);
 	border-radius: 5px;
 }

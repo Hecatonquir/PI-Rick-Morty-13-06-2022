@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import Form from 'react-bootstrap/Form';
 
 import {
 	filterByOrigin,
@@ -17,8 +18,8 @@ export function ByOrigin(obj) {
 	}
 
 	return (
-		<select onChange={(e) => handleFilterTypes(e)}>
-			<option value='All'> Origen </option>
+		<Form.Select onChange={(e) => handleFilterTypes(e)}>
+			<option value='All'>Order by Origin</option>
 			{allOrigins.length
 				? allOrigins.map((or) => {
 						return (
@@ -28,7 +29,7 @@ export function ByOrigin(obj) {
 						);
 				  })
 				: allOrigins}
-		</select>
+		</Form.Select>
 	);
 }
 
@@ -40,11 +41,11 @@ export function Created() {
 	}
 
 	return (
-		<select onChange={(e) => handleFilterCreated(e)}>
-			<option value='All'> Originales o Creados </option>
-			<option value='original'> Originales </option>
-			<option value='created'> Creados </option>
-		</select>
+		<Form.Select onChange={(e) => handleFilterCreated(e)}>
+			<option value='All'> Show Original / Created </option>
+			<option value='original'> Original </option>
+			<option value='created'> Created </option>
+		</Form.Select>
 	);
 }
 
@@ -60,11 +61,11 @@ export function ByAlphabet(todo) {
 	}
 
 	return (
-		<select onChange={(e) => handleFilterByAlphabet(e)}>
-			<option value='All'>Ordenar Alfabeticamente</option>
-			<option value='asc'>Ascendente</option>
-			<option value='desc'>Descendente</option>
-		</select>
+		<Form.Select onChange={(e) => handleFilterByAlphabet(e)}>
+			<option value='All'>Order Alphabetically</option>
+			<option value='asc'>A-Z</option>
+			<option value='desc'>Z-A</option>
+		</Form.Select>
 	);
 }
 export function BySpecie(obj) {
@@ -76,8 +77,8 @@ export function BySpecie(obj) {
 	}
 
 	return (
-		<select onChange={(e) => handleFilterTypes(e)}>
-			<option value='All'> Especie </option>
+		<Form.Select onChange={(e) => handleFilterTypes(e)}>
+			<option value='All'> Order by Species </option>
 			{allSpecies.length
 				? allSpecies.map((or) => {
 						return (
@@ -87,6 +88,6 @@ export function BySpecie(obj) {
 						);
 				  })
 				: allSpecies}
-		</select>
+		</Form.Select>
 	);
 }
