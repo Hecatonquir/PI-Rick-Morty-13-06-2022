@@ -25,10 +25,10 @@ export default function Tarjeta({ id, image, name, origin, species, episode, api
 					<Card.Title>{CapitalizedName}</Card.Title>
 				</Row>
 				<Row>
-					<Card.Text className='text-start'>Origen: {origin}</Card.Text>
+					<Card.Text className='text-start'>Origin: {origin}</Card.Text>
 				</Row>
 				<Row>
-					<Card.Text className='text-start'>Especie: {species}</Card.Text>
+					<Card.Text className='text-start'>Species: {species}</Card.Text>
 				</Row>
 				<Row className='mt-3'>
 					<Col>

@@ -45,12 +45,20 @@ export default function rootReducer(state = initialState, action) {
 			};
 		case 'FILTER_CREATED':
 			const allCharacters2 = state.allCharacters;
+			console.log(
+				'🟢🟢🟢 / file: reducer.js / line 48 / rootReducer / allCharacters2:\n',
+				allCharacters2[20]
+			);
+			console.log(
+				'🟢🟢🟢 / file: reducer.js / line 48 / rootReducer / allCharacters2:\n',
+				allCharacters2[20].hasOwnProperty('apiId')
+			);
 			const statusFiltered2 =
 				action.payload === 'All'
 					? allCharacters2
 					: action.payload === 'original'
-					? allCharacters2.filter((e) => typeof e.id !== 'number')
-					: allCharacters2.filter((e) => typeof e.id === 'number');
+					? allCharacters2.filter((e) => e.apiId > 0)
+					: allCharacters2.filter((e) => e.apiId === null);
 			return {
 				...state,
 				characters: statusFiltered2,

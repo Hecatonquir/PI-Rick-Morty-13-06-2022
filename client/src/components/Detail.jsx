@@ -18,10 +18,13 @@ import NavbarBootstrap from './02-Navbar';
 export default function Detail(props) {
 	const dispatch = useDispatch();
 	const { id } = props.match.params;
+	//console.log('🟢 / file: Detail.jsx / line 21 / Detail / id', id);
 
 	const ALLCharacters = useSelector((state) => state.allCharacters);
+	//console.log('🟢🟢 / file: Detail.jsx / line 24 / Detail / ALLCharacters', ALLCharacters);
 
-	const idCharacter = ALLCharacters.find((char) => (char.id = id));
+	const idCharacter = ALLCharacters.find((char) => char.id === id);
+	console.log('🟢🟢🟢 / file: Detail.jsx / line 25 / Detail / idCharacter', idCharacter);
 
 	useEffect(() => {
 		dispatch(getCharacters());
