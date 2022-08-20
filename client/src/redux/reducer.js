@@ -49,10 +49,7 @@ export default function rootReducer(state = initialState, action) {
 				'🟢🟢🟢 / file: reducer.js / line 48 / rootReducer / allCharacters2:\n',
 				allCharacters2[20]
 			);
-			console.log(
-				'🟢🟢🟢 / file: reducer.js / line 48 / rootReducer / allCharacters2:\n',
-				allCharacters2[20].hasOwnProperty('apiId')
-			);
+
 			const statusFiltered2 =
 				action.payload === 'All'
 					? allCharacters2
