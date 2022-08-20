@@ -47,10 +47,11 @@ export default function Home() {
 		dispatch(A.getEpisodes());
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [dispatch]);
-
+	let value;
 	let handleRefresh = (e) => {
 		e.preventDefault();
 		dispatch(A.getCharacters());
+		value = 'All';
 	};
 
 	return (
@@ -67,7 +68,7 @@ export default function Home() {
 						</Col>
 					</Row>
 					<Row className='my-2'>
-						<Col>{<Filter.ByOrigin allOrigins={allOrigins} />}</Col>
+						<Col>{<Filter.ByOrigin allOrigins={allOrigins} value={value} />}</Col>
 						<Col>{<Filter.BySpecie allSpecies={allSpecies} />}</Col>
 						<Col>{<Filter.Created />}</Col>
 						<Col>{<Filter.ByAlphabet setCurrentPage={setCurrentPage} setOrden={setOrden} />}</Col>
@@ -110,7 +111,7 @@ export default function Home() {
 							</Row>
 						)
 					) : (
-						<Container className='loading text-center '>
+						<Container className=' text-center p-5' style={{ minHeight: '100vh' }}>
 							<Row className='justify-content-center'>
 								<img
 									className='Loading-img'
@@ -118,6 +119,7 @@ export default function Home() {
 									alt='portal'
 								/>
 							</Row>
+							<br />
 							<Row>
 								<h2 className='loading'> Loading...</h2>
 							</Row>

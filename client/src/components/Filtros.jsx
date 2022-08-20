@@ -11,7 +11,7 @@ import {
 
 export function ByOrigin(obj) {
 	const dispatch = useDispatch();
-	const { allOrigins } = obj;
+	const { allOrigins, value } = obj;
 
 	function handleFilterTypes(e) {
 		dispatch(filterByOrigin(e.target.value));
@@ -19,7 +19,7 @@ export function ByOrigin(obj) {
 
 	return (
 		<Form.Select onChange={(e) => handleFilterTypes(e)}>
-			<option value='All'>Order by Origin</option>
+			<option value={value || 'All'}>Order by Origin</option>
 			{allOrigins.length
 				? allOrigins.map((or) => {
 						return (

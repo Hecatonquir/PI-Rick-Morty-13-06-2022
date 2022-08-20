@@ -11,7 +11,7 @@ main.mainCrear {
 	align-items: flex-start;
 }
 div.Crear {
-	background-color: rgba(200, 229, 255, 0.3);
+	background-color: rgba(0, 0, 0, 0.5);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -19,8 +19,12 @@ div.Crear {
 	align-content: stretch;
 }
 h1.Crear {
+	background-color: rgba(0, 0, 0, 0);
+	/* 	display: flex;
+	align-items: center;
+	justify-content: center;
 	text-align: center;
-	width: fit-content;
+	width: fit-content; */
 }
 
 form.Crear {

@@ -1,5 +1,8 @@
 import { React, useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useDispatch } from 'react-redux';
@@ -23,23 +26,29 @@ export default function SearchBar() {
 	};
 
 	return (
-		<InputGroup className='mb-3'>
-			<Form.Control
-				placeholder='Search By Name'
-				aria-label="Recipient's username"
-				aria-describedby='basic-addon2'
-				type='input'
-				onChange={(e) => handleChange(e)}
-				value={searchInput}
-			/>
-			<Button
-				variant='outline-secondary'
-				id='button-addon2'
-				type='submit'
-				onClick={(e) => handleSearch(e)}>
-				Search
-			</Button>
-		</InputGroup>
+		<Container>
+			<Row>
+				<Col>
+					<InputGroup className='mb-3'>
+						<Form.Control
+							placeholder='Search By Name'
+							aria-label="Recipient's username"
+							aria-describedby='basic-addon2'
+							type='input'
+							onChange={(e) => handleChange(e)}
+							value={searchInput}
+						/>
+						<Button
+							variant='outline-light'
+							id='button-addon2'
+							type='submit'
+							onClick={(e) => handleSearch(e)}>
+							Search
+						</Button>
+					</InputGroup>
+				</Col>
+			</Row>
+		</Container>
 	);
 }
 /* <Form>
