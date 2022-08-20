@@ -215,30 +215,3 @@ export default function NewRecipe() {
 		</div>
 	);
 }
-
-{
-	/* 
-			
-			
-			<div className='labels'>
-				<label>Episodios: </label>
-				<select onChange={(e) => handleSelect(e)}>
-					{episodes.map((d) => {
-						return (
-							<option key={d.id} value={d.name}>
-								{d.id}º: {d.name}
-							</option>
-						);
-					})}
-				</select>
-			</div>
-			<h3>
-				{localInput.episode.length
-					? 'Elegidos: ' + localInput.episode.map((e) => `${e}, `)
-					: ''}
-			</h3>
-			<button type='submit'> CREAR </button>
-		</form>
-	</div>
-</main> */
-}

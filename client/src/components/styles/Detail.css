@@ -1,0 +1,12 @@
+main.mainDetail {
+	background-image: url('https://elvortex.com/wp-content/uploads/2019/06/RICKMORTY_39_-_COVER_A_FNL_WEB_1024x1024.jpg');
+	min-width: 100%;
+	min-height: 100vh;
+	background-size: cover;
+	background-position: center center;
+	/* ----- */
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+}

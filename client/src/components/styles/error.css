@@ -7,3 +7,9 @@
 	background-attachment: fixed;
 	list-style: none;
 }
+#errormsg {
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	border-radius: 15px;
+	text-align: center;
+}

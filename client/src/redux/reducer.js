@@ -3,6 +3,7 @@ const initialState = {
 	episodes: [],
 	allCharacters: [],
 	origenes: [],
+	idCharacter: {},
 };
 
 export default function rootReducer(state = initialState, action) {

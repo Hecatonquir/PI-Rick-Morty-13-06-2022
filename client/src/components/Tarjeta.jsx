@@ -34,7 +34,7 @@ export default function Tarjeta({ id, image, name, origin, species, episode, api
 					<Col>
 						<Dropdown>
 							<Dropdown.Toggle variant='secondary' id='navbarScrollingDropdown'>
-								Episodios
+								Episodes
 							</Dropdown.Toggle>
 							<Dropdown.Menu id='navbarScrollingDropdown'>
 								{episode.length ? (
@@ -46,13 +46,15 @@ export default function Tarjeta({ id, image, name, origin, species, episode, api
 										);
 									})
 								) : (
-									<Dropdown.ItemText>No se encontraron episodios</Dropdown.ItemText>
+									<Dropdown.ItemText>No Episodes Found</Dropdown.ItemText>
 								)}
 							</Dropdown.Menu>
 						</Dropdown>
 					</Col>
 					<Col>
-						<Button variant='outline-light'>Detail</Button>
+						<Button variant='outline-light' href={`/detail/${id}`}>
+							Detail
+						</Button>
 					</Col>
 				</Row>
 			</Card.Body>
