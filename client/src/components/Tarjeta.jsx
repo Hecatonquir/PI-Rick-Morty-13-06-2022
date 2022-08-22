@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles/Tarjeta.css';
 //import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
+import './styles/Tarjeta.css';
 
 export default function Tarjeta({ id, image, name, origin, species, episode, apiId }) {
 	episode.sort((a, b) => (a.id > b.id ? 1 : -1));
@@ -19,17 +19,19 @@ export default function Tarjeta({ id, image, name, origin, species, episode, api
 	let CapitalizedName = capitalizeWords(name);
 	return (
 		<Card
-			style={{ maxWidth: '15rem' }}
-			className=' text-center bg-dark text-white m-1 p-1 shadow-lg justify-content-center'>
-			<Card.Img variant='top' src={`${image}`} style={{ height: '15rem' }} />
+			style={{ width: '100%', height: '98%' }}
+			className='text-center bg-dark text-white m-1 p-1 pb-0 shadow-lg justify-content-center'>
+			<Card.Img variant='top' src={`${image}`} style={{ height: '15rem', objectFit: 'cover' }} />
 			<Card.Body>
 				<Row>
-					<Card.Title>{CapitalizedName}</Card.Title>
+					<Card.Title className='Title'>{CapitalizedName}</Card.Title>
 				</Row>
-				<Row>
+				<br />
+				<Row className='Info'>
 					<Card.Text className='text-start'>Origin: {origin}</Card.Text>
 				</Row>
-				<Row>
+				<br />
+				<Row className='Info'>
 					<Card.Text className='text-start'>Species: {species}</Card.Text>
 				</Row>
 				<Row className='mt-3'>
