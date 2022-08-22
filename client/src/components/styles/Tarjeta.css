@@ -1,13 +1,11 @@
-div.Tarjeta {
-	background-color: rgba(0, 0, 0, 0.5);
-	color: white;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: center;
-	align-content: stretch;
-	padding: 1%;
-	border-radius: 5%;
-	margin: 1%;
+div.Title.Title {
+	position: absolute;
+	padding: 0.5rem;
+	border-radius: 10px;
+	background-color: rgb(255, 255, 255);
+	color: black;
+	top: 220px;
+	box-shadow: 0 0 15px rgb(0, 0, 0);
+	width: 93%;
 }
+
