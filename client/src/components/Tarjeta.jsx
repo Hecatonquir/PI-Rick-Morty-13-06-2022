@@ -27,14 +27,14 @@ export default function Tarjeta({ id, image, name, origin, species, episode, api
 					<Card.Title className='Title'>{CapitalizedName}</Card.Title>
 				</Row>
 				<br />
-				<Row className='Info'>
+				<Row className='mb-2' 	style={{ width: '100%', height: '24%' }}>
 					<Card.Text className='text-start'>Origin: {origin}</Card.Text>
 				</Row>
-				<br />
-				<Row className='Info'>
+				
+				<Row className='mb-2'>
 					<Card.Text className='text-start'>Species: {species}</Card.Text>
 				</Row>
-				<Row className='mt-3'>
+				<Row className='Buttons'>
 					<Col>
 						<Dropdown>
 							<Dropdown.Toggle variant='secondary' id='navbarScrollingDropdown'>

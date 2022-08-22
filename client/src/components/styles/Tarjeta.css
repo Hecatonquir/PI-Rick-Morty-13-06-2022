@@ -8,4 +8,7 @@ div.Title.Title {
 	box-shadow: 0 0 15px rgb(0, 0, 0);
 	width: 93%;
 }
-
+div.row.Buttons {
+	position: relative;
+	bottom: -5px;
+}
