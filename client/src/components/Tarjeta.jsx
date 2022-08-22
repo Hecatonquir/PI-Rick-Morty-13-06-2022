@@ -18,7 +18,9 @@ export default function Tarjeta({ id, image, name, origin, species, episode, api
 	}
 	let CapitalizedName = capitalizeWords(name);
 	return (
-		<Card style={{ maxWidth: '15rem' }} className=' text-center bg-dark text-white m-1 p-1 shadow-lg '>
+		<Card
+			style={{ maxWidth: '15rem' }}
+			className=' text-center bg-dark text-white m-1 p-1 shadow-lg justify-content-center'>
 			<Card.Img variant='top' src={`${image}`} style={{ height: '15rem' }} />
 			<Card.Body>
 				<Row>

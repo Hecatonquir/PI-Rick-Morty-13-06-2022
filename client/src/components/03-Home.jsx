@@ -59,19 +59,19 @@ export default function Home() {
 			<header>{<NavbarBootstrap />}</header>
 			<main className='home mt-5'>
 				<Container className='text-center mt-3 py-2 filtros'>
-					<Row className='my-2'>
+					<Row className='my-3'>
+						<Col>{<Filter.ByOrigin allOrigins={allOrigins} value={value} />}</Col>
+						<Col>{<Filter.BySpecie allSpecies={allSpecies} />}</Col>
+						<Col>{<Filter.Created />}</Col>
+						<Col>{<Filter.ByAlphabet setCurrentPage={setCurrentPage} setOrden={setOrden} />}</Col>
+					</Row>
+					<Row className=''>
 						<Col>{<SearchBar />}</Col>
 						<Col>
 							<Button variant='outline-light' onClick={(e) => handleRefresh(e)}>
 								Reload All Characters
 							</Button>
 						</Col>
-					</Row>
-					<Row className='my-2'>
-						<Col>{<Filter.ByOrigin allOrigins={allOrigins} value={value} />}</Col>
-						<Col>{<Filter.BySpecie allSpecies={allSpecies} />}</Col>
-						<Col>{<Filter.Created />}</Col>
-						<Col>{<Filter.ByAlphabet setCurrentPage={setCurrentPage} setOrden={setOrden} />}</Col>
 					</Row>
 				</Container>
 				<Container className='text-center mt-3'>
@@ -83,13 +83,20 @@ export default function Home() {
 					/>
 				</Container>
 
-				<Container className='text-center'>
+				<Container className='text-center justify-content-center'>
 					{Characters?.length ? (
 						typeof currentCharacters !== 'string' ? (
 							<Row>
 								{currentCharacters.map((e) => {
 									return (
-										<Col key={e.id} xxl={3} lg={4} md={6} xs={12}>
+										<Col
+											key={e.id}
+											xxl={3}
+											lg={4}
+											md={6}
+											xs={12}
+											className=' aca no funciona justify-c.-c. ni text-center'
+											style={{ display: 'flex', justifyContent: 'center' }}>
 											<Tarjeta
 												id={e.id}
 												image={e.image}

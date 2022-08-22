@@ -26,47 +26,18 @@ export default function SearchBar() {
 	};
 
 	return (
-		<Container>
-			<Row>
-				<Col>
-					<InputGroup className='mb-3'>
-						<Form.Control
-							placeholder='Search By Name'
-							aria-label="Recipient's username"
-							aria-describedby='basic-addon2'
-							type='input'
-							onChange={(e) => handleChange(e)}
-							value={searchInput}
-						/>
-						<Button
-							variant='outline-light'
-							id='button-addon2'
-							type='submit'
-							onClick={(e) => handleSearch(e)}>
-							Search
-						</Button>
-					</InputGroup>
-				</Col>
-			</Row>
-		</Container>
+		<InputGroup className='mb-3'>
+			<Form.Control
+				placeholder='Search By Name'
+				aria-label="Recipient's username"
+				aria-describedby='basic-addon2'
+				type='input'
+				onChange={(e) => handleChange(e)}
+				value={searchInput}
+			/>
+			<Button variant='outline-light' id='button-addon2' type='submit' onClick={(e) => handleSearch(e)}>
+				Search
+			</Button>
+		</InputGroup>
 	);
 }
-/* <Form>
-			<Row>
-				<Col md={6}>
-					<Form.Group className='mb-3 text-white' controlId='formBasicPassword'>
-						<Form.Control
-							type='input'
-							onChange={(e) => handleChange(e)}
-							value={searchInput}
-							placeholder='Search Character'
-						/>
-					</Form.Group>
-				</Col>
-				<Col md={6}>
-					<Button variant='outline-light' type='submit' onClick={(e) => handleSearch(e)}>
-						Search
-					</Button>
-				</Col>
-			</Row>
-		</Form> */
