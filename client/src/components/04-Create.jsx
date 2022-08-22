@@ -11,10 +11,10 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import NavbarBootstrap from './02-Navbar';
 
 import './styles/04-Create.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavbarBootstrap from './02-Navbar';
 
 export default function NewRecipe() {
 	const dispatch = useDispatch();
@@ -42,6 +42,8 @@ export default function NewRecipe() {
 
 	let handleInputChange = (e) => {
 		setLocalInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+		//console.log('🟢🟢🟢 / file: 04-Create.jsx / line 45 / handleInputChange / localInput:', localInput);
+
 		setVerif(
 			control({
 				...localInput,
@@ -50,36 +52,26 @@ export default function NewRecipe() {
 		);
 	};
 
-	let handleCheckBox = (e) => {
-		if (!localInput.species.includes(e.target.value)) {
-			setLocalInput({
-				...localInput,
-				species: e.target.value,
-			});
-		} else {
-			setLocalInput({
-				...localInput,
-				species: '',
-			});
-		}
-	};
-
 	let handleSelect = (e) => {
 		if (!localInput.episode.includes(e.target.value)) {
-			setLocalInput({
-				...localInput,
-				episode: [...localInput.episode, e.target.value],
-			});
+			setLocalInput((prev) => ({ ...prev, episode: [...localInput.episode, e.target.value] }));
 		} else {
 			setLocalInput({
 				...localInput,
 				episode: localInput.episode.filter((d) => d !== e.target.value),
 			});
 		}
+		setVerif(
+			control({
+				...localInput,
+				episode: [...localInput.episode, e.target.value],
+			})
+		);
+		//console.log('🟢🟢🟢 / file: 04-Create.jsx / line 45 / handleInputChange / localInput:', localInput);
 	};
 
 	let handleSubmit = async (e) => {
-		console.log(localInput);
+		console.log('🟢🟢🟢 / file: 04-Create.jsx / line 83 / handleSubmit / localInput', localInput);
 		e.preventDefault();
 		if (verif.check === 'bien') {
 			dispatch(createNewCharacter(localInput));
@@ -90,9 +82,9 @@ export default function NewRecipe() {
 				species: [],
 				episode: [],
 			});
-			alert('Personaje Creado!');
+			alert('New Character Created!');
 		} else {
-			alert('Tiene que insertar los datos correctamente!');
+			alert('Please insert all inputs!');
 		}
 	};
 
@@ -109,38 +101,50 @@ export default function NewRecipe() {
 							<Form onSubmit={(e) => handleSubmit(e)}>
 								<Form.Group className='mb-3'>
 									<Form.Label>Name:</Form.Label>
-									<Form.Control
-										type='text'
-										name='name'
-										value={localInput.name}
-										onChange={(e) => handleInputChange(e)}
-										placeholder='Enter name'
-									/>
-									{verif?.name ? <p className='verif'>{verif.name}</p> : null}
+									<Row>
+										<Col>
+											<Form.Control
+												type='text'
+												name='name'
+												value={localInput.name}
+												onChange={(e) => handleInputChange(e)}
+												placeholder='Enter name'
+											/>
+										</Col>
+										<Col>{verif?.name ? <p className='verif'>{verif.name}</p> : null}</Col>
+									</Row>
 								</Form.Group>
 
 								<Form.Group className='mb-3'>
 									<Form.Label>Origin:</Form.Label>
-									<Form.Control
-										type='text'
-										name='origin'
-										value={localInput.origin}
-										onChange={(e) => handleInputChange(e)}
-										placeholder='Enter Place Of Origin'
-									/>
-									{verif?.origin ? <p className='verif'>{verif.origin}</p> : null}
+									<Row>
+										<Col>
+											<Form.Control
+												type='text'
+												name='origin'
+												value={localInput.origin}
+												onChange={(e) => handleInputChange(e)}
+												placeholder='Enter Place Of Origin'
+											/>
+										</Col>
+										<Col>{verif?.origin ? <p className='verif'>{verif.origin}</p> : null}</Col>
+									</Row>
 								</Form.Group>
 
 								<Form.Group className='mb-3'>
 									<Form.Label>Image:</Form.Label>
-									<Form.Control
-										type='text'
-										name='image'
-										value={localInput.image}
-										onChange={(e) => handleInputChange(e)}
-										placeholder='Enter An Image URL'
-									/>
-									{verif?.image ? <p className='verif'>{verif.image}</p> : null}
+									<Row>
+										<Col>
+											<Form.Control
+												type='text'
+												name='image'
+												value={localInput.image}
+												onChange={(e) => handleInputChange(e)}
+												placeholder='Enter An Image URL'
+											/>
+										</Col>
+										<Col>{verif?.image ? <p className='verif'>{verif.image}</p> : null}</Col>
+									</Row>
 								</Form.Group>
 
 								<Form.Group className='mb-3'>
@@ -156,20 +160,25 @@ export default function NewRecipe() {
 														label={d}
 														name='species'
 														value={d}
-														onChange={(e) => handleCheckBox(e)}
+														onChange={(e) => handleInputChange(e)}
 													/>
 												</Col>
 											);
 										})}
 									</Row>
-									<Form.Control
-										type='text'
-										name='species'
-										value={localInput.species ? `Selected Species: ${localInput.species}` : ''}
-										onChange={(e) => handleInputChange(e)}
-										placeholder='Enter a Species'
-										disabled
-									/>
+									<Row>
+										<Col>
+											<Form.Control
+												type='text'
+												name='species'
+												value={localInput.species ? `${localInput.species}` : ''}
+												onChange={(e) => handleInputChange(e)}
+												placeholder='Enter a Species'
+												disabled
+											/>
+										</Col>
+										<Col>{verif?.species ? <p className='verif'>{verif.species}</p> : null}</Col>
+									</Row>
 								</Form.Group>
 
 								<Form.Group>
@@ -179,6 +188,9 @@ export default function NewRecipe() {
 										</Col>
 										<Col>
 											<Form.Select onChange={(e) => handleSelect(e)} className='p-1'>
+												<option className='mt-3' hidden>
+													Episodes
+												</option>
 												{episodes.map((d) => {
 													return (
 														<option key={d.id} value={d.name} className='mt-3'>
@@ -189,14 +201,19 @@ export default function NewRecipe() {
 											</Form.Select>
 										</Col>
 									</Row>
-									<Form.Control
-										type='text'
-										name='episode'
-										value={localInput.episode ? `Selected Episodes: ${localInput.episode} ` : ''}
-										onChange={(e) => handleInputChange(e)}
-										placeholder='Select The Episodes where this character appeared'
-										disabled
-									/>
+									<Row>
+										<Col>
+											<Form.Control
+												type='text'
+												name='episode'
+												value={localInput.episode ? ` ${localInput.episode.join(', ')}` : ''}
+												onChange={(e) => handleInputChange(e)}
+												placeholder='Select The Episodes where this character appeared'
+												disabled
+											/>
+										</Col>
+										<Col>{verif?.episode ? <p className='verif'>{verif.episode}</p> : null}</Col>
+									</Row>
 								</Form.Group>
 
 								<Button variant='light' type='submit' className='my-3 btn-outline-dark'>

@@ -2,11 +2,15 @@ export default function control(localInput) {
 	let verif = [];
 	verif.check = 'mal';
 	if (!localInput.name) {
-		verif.name = 'Insertar Nombre del personaje';
+		verif.name = 'Insert Character Name';
 	} else if (!localInput.origin) {
-		verif.origin = 'Insertar un Origen';
+		verif.origin = 'Insert Origin';
 	} else if (!localInput.image) {
-		verif.image = 'Insertá una imagen!!';
+		verif.image = 'Insert an Image';
+	} else if (!localInput.species) {
+		verif.species = 'Select a Species';
+	} else if (!localInput.episode.length) {
+		verif.episode = 'Select Episodes';
 	} else verif.check = 'bien';
 	return verif;
 }

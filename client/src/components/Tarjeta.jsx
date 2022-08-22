@@ -41,7 +41,7 @@ export default function Tarjeta({ id, image, name, origin, species, episode, api
 									episode.map((epi) => {
 										return (
 											<Dropdown.ItemText key={epi.id}>
-												{epi.id}º {epi.name}
+												Nº{epi.id}: {epi.name}
 											</Dropdown.ItemText>
 										);
 									})

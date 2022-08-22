@@ -17,7 +17,7 @@ import './styles/home.css';
 export default function Home() {
 	const dispatch = useDispatch();
 	const Characters = useSelector((state) => state.characters);
-	//console.log('🟢🟢🟢 / file: 03-Home.jsx / line 18 / Home / Characters', Characters);
+	//console.log('🟢🟢🟢 / file: 03-Home.jsx / line 20 / Home / Characters', Characters);
 
 	const ALLCharacters = useSelector((state) => state.allCharacters);
 
@@ -63,7 +63,7 @@ export default function Home() {
 						<Col>{<SearchBar />}</Col>
 						<Col>
 							<Button variant='outline-light' onClick={(e) => handleRefresh(e)}>
-								Clear Filters
+								Reload All Characters
 							</Button>
 						</Col>
 					</Row>
@@ -96,7 +96,7 @@ export default function Home() {
 												name={e.name}
 												origin={e.origin}
 												species={e.species}
-												episode={e.episodes}
+												episode={e.episodes.length ? e.episodes : e.apiEpisodes}
 												apiId={e.apiId}
 											/>
 										</Col>

@@ -9,15 +9,15 @@ async function getApiCharacters() {
 		let characters = await apiData.data.results.map(async (char) => {
 			let episodePromises = char.episode.map((epi) => axios.get(epi));
 			let solvedPromises = await Promise.all(episodePromises);
-			let epinames = solvedPromises.map((solved) => solved.data.name);
+			let epinames = solvedPromises.map((solved) => ({ id: solved.data.id, name: solved.data.name }));
 			let character = {
 				apiId: char.id,
 				name: char.name,
 				species: char.species,
 				origin: char.origin.name,
 				image: char.image,
+				apiEpisodes: epinames,
 				created: false,
-				episodes: epinames,
 			};
 			return character;
 		});
@@ -26,18 +26,12 @@ async function getApiCharacters() {
 
 		var promises = await characters.map((char) =>
 			Character.findOrCreate({
-				where: {
-					apiId: char.apiId,
-					name: char.name,
-					species: char.species,
-					origin: char.origin,
-					image: char.image,
-					created: false,
-				},
+				where: char,
 			})
 		);
+		//console.log('🟢🟢🟢 / file: Character.js / line 39 / getApiCharacters / promises', promises);
 
-		let solvedPromises = await Promise.all(promises);
+		/* let solvedPromises = await Promise.all(promises);
 
 		characters.map(async (char, i) => {
 			let apiEpisodesXdbEpisodes = await Episode.findAll({
@@ -45,8 +39,8 @@ async function getApiCharacters() {
 			});
 			solvedPromises[i][0].addEpisode(apiEpisodesXdbEpisodes);
 		});
-
-		console.log('Characters uploaded to Db');
+ */
+		console.log('Characters loaded to Db');
 	} catch (error) {
 		console.log(
 			'💥💥💥 / file: Character.js / line 51 / getApiCharacters / error.message ->',
@@ -77,17 +71,25 @@ async function getDbCharacters(req, res) {
 
 const newCharacter = async (req, res) => {
 	let { name, species, origin, image, episode } = req.body;
-	console.log('🐲🐲🐲 / file: functions.js / line 76 / episode', episode);
+	//console.log('🟢🟢🟢 / file: Character.js / line 74 / newCharacter / req.body', req.body);
 	name = name.toLowerCase();
+	console.log('🟢🟢🟢 / file: Character.js / line 77 / newCharacter / name', name);
+
 	try {
 		let createCharacter = await Character.create({ name, species, origin, image });
 		let checkEpisode = await Episode.findAll({
 			where: { name: episode },
 		});
-
+		console.log(
+			'🟢🟢🟢 / file: Character.js / line 79 / newCharacter / createCharacter:\n',
+			createCharacter
+		);
 		createCharacter.addEpisode(checkEpisode);
+
 		res.send('Character creado correctamente');
 	} catch (error) {
+		console.log('💥💥💥/ file: Character.js / line 90 / newCharacter / error:\n', error);
+
 		res.send('No se pudo crear el personaje ');
 	}
 };

@@ -21,17 +21,23 @@ module.exports = (sequelize) => {
 			},
 			species: {
 				type: DataTypes.STRING,
+				allowNull: false,
 			},
 			origin: {
 				type: DataTypes.STRING,
+				allowNull: false,
 			},
 			image: {
 				type: DataTypes.TEXT,
+				allowNull: false,
 			},
 			created: {
 				type: DataTypes.BOOLEAN,
 				allowNull: false,
 				defaultValue: true,
+			},
+			apiEpisodes: {
+				type: DataTypes.ARRAY(DataTypes.JSONB),
 			},
 		},
 		{ timestamps: false }
